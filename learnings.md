@@ -1,8 +1,6 @@
-# docker_test101
+# Learning
 
-## Learning
-
-### Build an image and run a container
+## Build an image and run a container
 
 _Build an image_
 
@@ -19,7 +17,7 @@ docker stop <container_name_or_id>
 docker rm $(docker ps -a -q)
 ```
 
-### Run multiple containers
+## Run multiple containers
 
 To achieve this we need to create a compose.yaml file to describe our servcies or containers.
 
