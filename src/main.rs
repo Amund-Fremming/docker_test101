@@ -4,7 +4,7 @@ use axum::{http::StatusCode, response::IntoResponse, routing::*};
 async fn main() {
     let app = Router::new().route("/", get(hello_docker));
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:6969").await.unwrap();
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:9000").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
 

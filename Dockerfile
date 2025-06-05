@@ -1,24 +1,22 @@
-# **Recipe**
-
-# Gets a "template" for running our code language
+# Use official Rust image with Rust toolchain pre-installed
 FROM rust:latest
 
-# Sets the default directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copies our code to the docker image
-# NOTE - this copies the whole project, use .dockerignore to skip parts
-COPY . . 
+# Copy the entire project into the container
+# NOTE: Use .dockerignore to exclude files/folders you don't want to copy
+COPY . .
 
-# Builds the project
-# NOTE - Not neccessary, but for demo
+# Build the project (debug build).
+# Optional because `cargo run` will build automatically if needed.
 RUN cargo build
 
-# Sets the enviroment variable "PORT" to 6969
+# Set environment variable for the app port
 ENV PORT=6969
 
-# Expose the port so our computer can access it
-EXPOSE 9000
+# Expose the port our app listens on (should match PORT environment variable)
+EXPOSE 6969
 
-# App run command
+# Run the app
 CMD ["cargo", "run"]
